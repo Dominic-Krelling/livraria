@@ -2,10 +2,15 @@ from django.shortcuts import render
 
 from rest_framework.viewsets import ModelViewSet
 
+from livraria.models import Autor, Categoria, Editora, Livro
+from livraria.serializers.livro import (
+    LivroDetailSerializer,
+    LivroListSerializer,
+    LivroSerializer,
+)
+
 # from rest_framework.permissions import IsAuthenticated
 
-from livraria.models import Categoria, Editora, Autor, Livro
-from livraria.serializers.livro import LivroDetailSerializer, LivroSerializer, LivroListSerializer
 
 class LivroViewSet(ModelViewSet):
     queryset = Livro.objects.all()
