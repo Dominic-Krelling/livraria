@@ -1,7 +1,7 @@
 from django.db import models
 
 from usuario.models import Usuario
-import livraria.models import livro
+from livraria.models import Livro
 
 class Compra(models.Model):
     class StatusCompra(models.IntegerChoices):

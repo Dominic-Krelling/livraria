@@ -6,13 +6,6 @@ from uploader.serializers import ImageSerializer
 
 
 class LivroSerializer(ModelSerializer):
-    class Meta:
-        model = Livro
-        fields = "__all__"
-        depth = 1
-
-
-class LivroSerializer(ModelSerializer):
     capa_attachment_key = SlugRelatedField(
         source="capa",
         queryset=Image.objects.all(),
@@ -21,6 +14,10 @@ class LivroSerializer(ModelSerializer):
         write_only=True,
     )
     capa = ImageSerializer(required=False, read_only=True)
+    class Meta:
+        model = Livro
+        fields = "__all__"
+        depth = 1
 
 
 class LivroListSerializer(ModelSerializer):
